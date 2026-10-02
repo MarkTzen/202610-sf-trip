@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>舊金山旅遊手冊 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* iOS 安全區域適配 */
+    body {
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      -webkit-tap-highlight-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen pb-24">
+
+  <!-- 頂部導航列 -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-sm border-b border-slate-200">
+    <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
+      <div>
+        <div class="flex items-center space-x-2">
+          <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">舊金山金秋之旅</span>
+          <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded-full border border-amber-200">無牛肉嚴選</span>
+        </div>
+        <p class="text-xs text-slate-500 mt-0.5">2026/10/08 – 10/14 (共 7 天)</p>
+      </div>
+      <button onclick="toggleModal('infoModal')" class="p-2 text-slate-600 hover:text-blue-600 active:scale-95 transition">
+        <i class="fa-solid fa-circle-info text-xl"></i>
+      </button>
+    </div>
+
+    <!-- 日期水平滾動切換標籤 -->
+    <div class="max-w-md mx-auto px-3 pb-2 flex space-x-2 overflow-x-auto hide-scrollbar">
+      <button onclick="switchTab('day1')" id="tab-day1" class="day-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-600 text-white shadow-sm transition">
+        D1 · 10/8 (四)
+      </button>
+      <button onclick="switchTab('day2')" id="tab-day2" class="day-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">
+        D2 · 10/9 (五)
+      </button>
+      <button onclick="switchTab('day3')" id="tab-day3" class="day-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">
+        D3 · 10/10 (六)
+      </button>
+      <button onclick="switchTab('day4')" id="tab-day4" class="day-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">
+        D4 · 10/11 (日)
+      </button>
+      <button onclick="switchTab('day5')" id="tab-day5" class="day-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">
+        D5 · 10/12 (一)
+      </button>
+      <button onclick="switchTab('day6')" id="tab-day6" class="day-tab flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">
+        D6 · 10/13-14
+      </button>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="max-w-md mx-auto px-4 mt-4 space-y-4">
+
+    <!-- ==================== DAY 1 ==================== -->
+    <section id="content-day1" class="day-content space-y-3">
+      <!-- 狀態卡 -->
+      <div class="bg-gradient-to-br from-indigo-500 to-blue-600 text-white p-4 rounded-2xl shadow-sm">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-medium">抵達日</span>
+            <h2 class="text-lg font-bold mt-1">抵達 SFO ➔ 漁人碼頭入住</h2>
+          </div>
+          <i class="fa-solid fa-plane-arrival text-2xl opacity-80"></i>
+        </div>
+        <div class="mt-3 pt-3 border-t border-white/20 text-xs flex items-center justify-between">
+          <span><i class="fa-solid fa-hotel mr-1"></i>當晚住宿：Hotel Caza</span>
+          <a href="https://maps.google.com/?q=Hotel+Caza+Fisherman's+Wharf" target="_blank" class="underline font-semibold flex items-center">
+            導航 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 機場上車指南 -->
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-car text-blue-600 mr-2"></i>SFO 機場叫車與接駁路線
+        </h3>
+        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+          班機約 <strong>20:00 抵達</strong>。提領行李（Level 2 到達層）後，搭乘電梯或手扶梯往上一層至 <strong>Level 3（出發層）</strong>。走出航廈大門，過馬路至中間候車島，於 <strong>Zone 14–17</strong> 叫車或等候接送。
+        </p>
+      </div>
+
+      <!-- 美食與宵夜 -->
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-utensils text-emerald-600 mr-2"></i>晚餐 / 宵夜指南（無牛肉）
+        </h3>
+        <div class="text-xs text-slate-600 mt-2 space-y-2">
+          <p>• <strong>碼頭外帶熱海鮮濃湯</strong> 或 飯店輕食。</p>
+          <p>• 步行 5 分鐘至 Columbus Ave 沿線有披薩店與美式海鮮，認明純海鮮（Seafood / Shrimp / Calamari）或起司瑪格麗特（Margherita）。</p>
+          <p class="text-slate-500">• 備案採買：Walgreens 營業至 22:00。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DAY 2 ==================== -->
+    <section id="content-day2" class="day-content hidden space-y-3">
+      <div class="bg-gradient-to-br from-blue-600 to-cyan-600 text-white p-4 rounded-2xl shadow-sm">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-medium">市區與惡魔島</span>
+            <h2 class="text-lg font-bold mt-1">市區經典巡禮 ＆ 惡魔島登島</h2>
+          </div>
+          <i class="fa-solid fa-monument text-2xl opacity-80"></i>
+        </div>
+        <div class="mt-3 pt-3 border-t border-white/20 text-xs flex items-center justify-between">
+          <span><i class="fa-solid fa-hotel mr-1"></i>住宿：Hotel Caza</span>
+          <span class="font-mono">步程 2 分鐘抵集合點</span>
+        </div>
+      </div>
+
+      <!-- 憑證資訊卡 -->
+      <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl shadow-sm">
+        <div class="flex items-center justify-between">
+          <div class="text-xs text-amber-900 font-bold flex items-center">
+            <i class="fa-solid fa-ticket mr-1.5 text-amber-600"></i>訂單與換票憑證
+          </div>
+          <span class="text-[10px] text-amber-700 bg-amber-200/60 px-1.5 py-0.5 rounded">點擊複製</span>
+        </div>
+        <div class="mt-2 space-y-1.5 text-xs text-slate-700">
+          <div class="flex justify-between items-center bg-white p-2 rounded border border-amber-100 cursor-pointer" onclick="copyText('V543KQJG', 'Easy Travel 團號')">
+            <span>市區一日遊 (08:50 集合)</span>
+            <span class="font-mono font-bold text-blue-700">V543KQJG <i class="fa-regular fa-copy ml-1"></i></span>
+          </div>
+          <div class="flex justify-between items-center bg-white p-2 rounded border border-amber-100 cursor-pointer" onclick="copyText('86477492', 'Pier 33 惡魔島換票碼')">
+            <span>惡魔島 Pier 33 換票</span>
+            <span class="font-mono font-bold text-blue-700">86477492 <i class="fa-regular fa-copy ml-1"></i></span>
+          </div>
+        </div>
+        <p class="text-[11px] text-amber-800 mt-2">
+          * 惡魔島島上提供<strong>免費中文語音導覽機</strong>，入獄牢房體驗極佳。
+        </p>
+      </div>
+
+      <!-- 行程動線 -->
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-route text-indigo-600 mr-2"></i>行程看點
+        </h3>
+        <ul class="text-xs text-slate-600 mt-2 space-y-1.5 list-disc list-inside">
+          <li><strong>上午</strong>：專車造訪金門大橋、藝術宮（集合點：2805 Leavenworth Street）。</li>
+          <li><strong>下午</strong>：Pier 33 搭船至惡魔島（Alcatraz）深度探訪，結束後漁人碼頭漫步。</li>
+        </ul>
+      </div>
+
+      <!-- 美食清單 -->
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-utensils text-emerald-600 mr-2"></i>嚴選美食＆咖啡
+        </h3>
+        <div class="text-xs text-slate-600 mt-2 space-y-2">
+          <p>• <strong>Boudin Bakery Cafe</strong>：酸麵包蛤蜊濃湯盅（純海鮮蔬菜熬煮無牛骨）。</p>
+          <p>• <strong>Fog Harbor Fish House</strong>：蒜香蒸烤太平洋珍寶蟹（Garlic Roasted Dungeness Crab）。</p>
+          <p>• <strong>Mad Yolks</strong>：The Mad Chick 招牌脆皮炸雞滑蛋堡、特調抹茶拿鐵。</p>
+          <p>• <strong>Sightglass Coffee</strong>：品味挑高木造工業風空間的精緻手沖。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DAY 3 ==================== -->
+    <section id="content-day3" class="day-content hidden space-y-3">
+      <div class="bg-gradient-to-br from-emerald-600 to-teal-600 text-white p-4 rounded-2xl shadow-sm">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-medium">美食與海景</span>
+            <h2 class="text-lg font-bold mt-1">農夫市集 ➔ 藍瓶咖啡 ➔ 海灣大橋</h2>
+          </div>
+          <i class="fa-solid fa-store text-2xl opacity-80"></i>
+        </div>
+        <div class="mt-3 pt-3 border-t border-white/20 text-xs flex items-center justify-between">
+          <span><i class="fa-solid fa-hotel mr-1"></i>今晚換宿：Hotel Riu Plaza</span>
+          <span class="font-medium">早晨步行過街寄行李</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-bag-shopping text-emerald-600 mr-2"></i>渡輪大廈農夫市集（建議 08:30 前抵達）
+        </h3>
+        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+          週六限定戶外熱食市集，人氣最高！用完餐後漫步至 Pier 14 木棧道，遠眺舊金山-奧克蘭海灣大橋雙層鋼索雄姿。
+        </p>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-bowl-food text-amber-600 mr-2"></i>無牛肉必吃清單
+        </h3>
+        <div class="text-xs text-slate-600 mt-2 space-y-2.5">
+          <div class="border-l-2 border-amber-400 pl-2">
+            <span class="font-bold text-slate-800">Roli Roti（市集排隊首選）</span>
+            <p>必點「慢烤脆皮豬肉三明治（Porchetta Sandwich）」，豬皮酥脆多汁，夾入吸收肉汁精華的迷迭香馬鈴薯。</p>
+          </div>
+          <div class="border-l-2 border-emerald-400 pl-2">
+            <span class="font-bold text-slate-800">Hog Island Oyster Co.</span>
+            <p>現開冷水甜蠔拼盤（Sweetwater / Kumamoto）配紅蔥香檳醋，或熱烤波旁威士忌蒜香奶油生蠔。</p>
+          </div>
+          <div class="border-l-2 border-indigo-400 pl-2">
+            <span class="font-bold text-slate-800">Primavera</span>
+            <p>香煎雞肉玉米脆餅（Chilaquiles with Chicken）佐新鮮莎莎醬與酪梨。</p>
+          </div>
+          <div class="border-l-2 border-blue-400 pl-2">
+            <span class="font-bold text-slate-800">Blue Bottle Coffee（渡輪大廈店）</span>
+            <p>招牌菊苣冰咖啡（New Orleans-style Iced Coffee）。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DAY 4 ==================== -->
+    <section id="content-day4" class="day-content hidden space-y-3">
+      <div class="bg-gradient-to-br from-green-700 to-emerald-800 text-white p-4 rounded-2xl shadow-sm">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-medium">國家公園一日遊</span>
+            <h2 class="text-lg font-bold mt-1">優聖美地 Yosemite 壯遊</h2>
+          </div>
+          <i class="fa-solid fa-mountain text-2xl opacity-80"></i>
+        </div>
+        <div class="mt-3 pt-3 border-t border-white/20 text-xs flex items-center justify-between">
+          <span><i class="fa-solid fa-clock mr-1"></i>約 07:00 集合（單程 4hr）</span>
+          <span>住宿：Hotel Riu Plaza</span>
+        </div>
+      </div>
+
+      <div class="bg-red-50 border border-red-200 p-3.5 rounded-xl text-xs text-red-800">
+        <div class="font-bold flex items-center mb-1 text-red-900">
+          <i class="fa-solid fa-triangle-exclamation mr-1.5"></i>重要野餐準備提醒！
+        </div>
+        園區內餐廳排隊耗時，<strong>週六請先在 Safeway 或 Trader Joe's 買妥野餐物資</strong>（冷燻鮭魚/雞肉三明治、香蕉、堅果、大瓶水）。
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-camera text-emerald-600 mr-2"></i>經典地標行程
+        </h3>
+        <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+          隧道觀景點（Tunnel View） ➔ 新娘面紗瀑布 ➔ 酋長岩花崗岩壁（El Capitan Meadow） ➔ 優勝美地瀑布 ➔ 幽谷觀景點（Valley View） ➔ 啟程返回舊金山。
+        </p>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-utensils text-blue-600 mr-2"></i>回程晚餐：Scoma's Restaurant
+        </h3>
+        <p class="text-xs text-slate-600 mt-2">
+          約 20:30 返抵漁人碼頭。必點特色<strong>「Lazy Man's Cioppino」義式番茄海鮮燉湯</strong>（純番茄海鮮高湯，滿滿去殼螃蟹、大蝦、干貝、淡菜與蛤蜊，無牛骨成分）。
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== DAY 5 ==================== -->
+    <section id="content-day5" class="day-content hidden space-y-3">
+      <div class="bg-gradient-to-br from-amber-600 to-orange-600 text-white p-4 rounded-2xl shadow-sm">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-medium">購物與南下</span>
+            <h2 class="text-lg font-bold mt-1">Livermore Outlet 採購日</h2>
+          </div>
+          <i class="fa-solid fa-bag-shopping text-2xl opacity-80"></i>
+        </div>
+        <div class="mt-3 pt-3 border-t border-white/20 text-xs flex items-center justify-between">
+          <span><i class="fa-solid fa-hotel mr-1"></i>南灣住宿：Maple Tree Inn</span>
+          <a href="https://maps.google.com/?q=Maple+Tree+Inn+Sunnyvale" target="_blank" class="underline font-semibold flex items-center">
+            導航 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <div class="flex justify-between items-center">
+          <h3 class="font-bold text-sm text-slate-900">San Francisco Premium Outlets</h3>
+          <a href="https://maps.google.com/?q=San+Francisco+Premium+Outlets" target="_blank" class="text-xs text-blue-600 font-semibold">地圖導航</a>
+        </div>
+        <p class="text-xs text-slate-600 mt-2">
+          週一開門即入園，完全避開週末排隊與塞車。對面步行 5-8 分鐘為 <strong>Pacific Pearl 亞洲綜合商場</strong>。
+        </p>
+      </div>
+
+      <!-- 晚餐推薦 -->
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-utensils text-orange-600 mr-2"></i>晚餐：Dishdash 中東地中海料理
+        </h3>
+        <p class="text-xs text-slate-600 mt-2">
+          位於 Sunnyvale Downtown，超高好評。必點：<strong>Mansaf 慢燉羊膝佐薑黃香料飯</strong>、<strong>炭烤香草雞肉串（Shish Taouk）</strong>，香料味濃郁且無牛肉。
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== DAY 6 ==================== -->
+    <section id="content-day6" class="day-content hidden space-y-3">
+      <div class="bg-gradient-to-br from-purple-700 to-indigo-800 text-white p-4 rounded-2xl shadow-sm">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-medium">矽谷巡禮 ➔ 機場返程</span>
+            <h2 class="text-lg font-bold mt-1">Google 園區 · 史丹佛 · 返台</h2>
+          </div>
+          <i class="fa-solid fa-plane-departure text-2xl opacity-80"></i>
+        </div>
+        <div class="mt-3 pt-3 border-t border-white/20 text-xs flex items-center justify-between">
+          <span>班機：華航 CI3 (01:05 起飛)</span>
+          <span class="font-bold text-amber-300">約 21:30 出發往 SFO</span>
+        </div>
+      </div>
+
+      <!-- 最佳動線卡 -->
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-sm text-slate-900 flex items-center">
+          <i class="fa-solid fa-arrow-trend-up text-blue-600 mr-2"></i>當日最佳走法推薦
+        </h3>
+        <ol class="text-xs text-slate-600 mt-2 space-y-2 list-decimal list-inside">
+          <li><strong>史丹佛大學</strong>：參觀西班牙傳教風格 Main Quad、金色拜占庭紀念教堂、登胡佛塔。</li>
+          <li><strong>Google Visitor Experience</strong>：戶外 Android 巨型甜點雕塑打卡、Google 官方周邊旗艦店。</li>
+          <li><strong>Costco 採買（Sunnyvale）</strong>：
+            <div class="ml-4 mt-1 text-slate-500">
+              地址：150 Lawrence Station Rd, Sunnyvale<br />
+              設施：加油站、熟食部、輪胎中心（週二營業至 20:30）。
+            </div>
+          </li>
+          <li><strong>Castro 街美食晚餐</strong>：Red Rock Coffee、Philz Coffee（薄荷特調 Mint Mojito）、Shalala 豚骨拉麵或丸一黑豚烏龍麵。</li>
+        </ol>
+      </div>
+
+      <!-- SFO 機場路線提醒 -->
+      <div class="bg-indigo-50 border border-indigo-200 p-3.5 rounded-xl text-xs text-indigo-900">
+        <div class="font-bold mb-1">返程注意：</div>
+        21:30–22:00 驅車沿 101 高速公路北上至 SFO（車程約 25–30 分鐘，夜間順暢），辦理還車、行李托運與安檢，搭乘 10/14 凌晨 01:05 CI3 返台。
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 底部快捷按鈕欄 -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur border-t border-slate-200 py-2.5">
+    <div class="max-w-md mx-auto px-6 flex justify-around items-center">
+      <button onclick="toggleModal('outletModal')" class="flex flex-col items-center text-slate-600 hover:text-blue-600 active:scale-95 transition">
+        <i class="fa-solid fa-tags text-base"></i>
+        <span class="text-[10px] mt-1 font-medium">Outlet攻略</span>
+      </button>
+      <button onclick="toggleModal('safetyModal')" class="flex flex-col items-center text-slate-600 hover:text-red-600 active:scale-95 transition">
+        <i class="fa-solid fa-shield-halved text-base"></i>
+        <span class="text-[10px] mt-1 font-medium">防盜防刷卡</span>
+      </button>
+      <button onclick="toggleModal('foodModal')" class="flex flex-col items-center text-slate-600 hover:text-emerald-600 active:scale-95 transition">
+        <i class="fa-solid fa-leaf text-base"></i>
+        <span class="text-[10px] mt-1 font-medium">避牛肉指引</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Outlet 攻略 Modal -->
+  <div id="outletModal" class="fixed inset-0 z-50 bg-black/50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-2xl max-h-[80vh] overflow-y-auto p-5 space-y-3">
+      <div class="flex justify-between items-center border-b pb-2">
+        <h3 class="font-bold text-base text-slate-900">🛍️ Livermore Outlet 採購重點</h3>
+        <button onclick="toggleModal('outletModal')" class="text-slate-400 hover:text-slate-700 text-lg">&times;</button>
+      </div>
+      <div class="text-xs text-slate-600 space-y-3 leading-relaxed">
+        <div>
+          <strong class="text-slate-800">1. VIP 數位優惠券：</strong><br />
+          Simon 官網註冊免費「VIP Shopper Club」，結帳出示手機條碼滿額額外 10%–15% 折抵。
+        </div>
+        <div>
+          <strong class="text-slate-800">2. 直奔店內「Clearance」出清架：</strong><br />
+          避開門口新品，後方常有紅標再折 40%–50%（Take Additional 40%–50% off）。
+        </div>
+        <div>
+          <strong class="text-slate-800">3. 價差最大品牌：</strong><br />
+          • 輕奢皮件（3–4 折）：Coach、Tory Burch、Kate Spade、Michael Kors<br />
+          • 美式休閒（3–5 折）：Polo Ralph Lauren、Tommy Hilfiger、Calvin Klein、Levi's<br />
+          • 機能服飾（5–6 折）：Lululemon（撿 We Made Too Much）、Arc'teryx 始祖鳥、Nike
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 防盜與刷卡 Modal -->
+  <div id="safetyModal" class="fixed inset-0 z-50 bg-black/50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-2xl max-h-[80vh] overflow-y-auto p-5 space-y-3">
+      <div class="flex justify-between items-center border-b pb-2">
+        <h3 class="font-bold text-base text-red-600">⚠️ 行車防盜 ＆ 刷卡陷阱</h3>
+        <button onclick="toggleModal('safetyModal')" class="text-slate-400 hover:text-slate-700 text-lg">&times;</button>
+      </div>
+      <div class="text-xs text-slate-600 space-y-3 leading-relaxed">
+        <div class="bg-red-50 p-2.5 rounded-lg border border-red-200">
+          <strong class="text-red-900">車內絕對不留任何可視物！</strong><br />
+          包含空外套、充電線、水瓶或購物袋。採購物品一律放進後車廂，切勿在露天停車場頻繁開關後車廂整理。
+        </div>
+        <div class="bg-amber-50 p-2.5 rounded-lg border border-amber-200">
+          <strong class="text-amber-900">刷卡避開 DCC 貨幣轉換陷阱：</strong><br />
+          刷卡機詢問幣別時，<strong>務必勾選「USD（美元）」</strong>！切勿選 TWD，否則將被加收 3%–5% 昂貴手續費。
+        </div>
+        <div>
+          <strong class="text-slate-800">10 月洋蔥式穿搭：</strong><br />
+          海灣海風強勁、優勝美地清晨黃昏溫差甚大，必備「防風防潑水外套 + 連帽衛衣/長袖」。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 無牛肉餐廳 Modal -->
+  <div id="foodModal" class="fixed inset-0 z-50 bg-black/50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-2xl max-h-[80vh] overflow-y-auto p-5 space-y-3">
+      <div class="flex justify-between items-center border-b pb-2">
+        <h3 class="font-bold text-base text-emerald-700">🥗 全程避牛肉餐廳速查</h3>
+        <button onclick="toggleModal('foodModal')" class="text-slate-400 hover:text-slate-700 text-lg">&times;</button>
+      </div>
+      <div class="text-xs text-slate-600 space-y-2.5 leading-relaxed">
+        <p>• <strong>Boudin Bakery</strong>：酸麵包蛤蜊巧達濃湯（純海鮮蔬菜）。</p>
+        <p>• <strong>Fog Harbor</strong>：整隻蒜香蒸烤太平洋珍寶蟹。</p>
+        <p>• <strong>Roli Roti</strong>：慢烤脆皮豬肉三明治（Porchetta）。</p>
+        <p>• <strong>Hog Island Oyster</strong>：現開生蠔拼盤。</p>
+        <p>• <strong>Scoma's</strong>：Lazy Man's Cioppino 義式海鮮燉湯（番茄海鮮底，去殼蟹肉大蝦）。</p>
+        <p>• <strong>Dishdash</strong>：Mansaf 燉羊膝佐薑黃飯、香草烤雞肉串。</p>
+        <p>• <strong>Shalala / 丸一</strong>：豚骨白湯拉麵、黑豚烏龍麵。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 行程資訊與工具 Modal -->
+  <div id="infoModal" class="fixed inset-0 z-50 bg-black/50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-2xl max-h-[80vh] overflow-y-auto p-5 space-y-3">
+      <div class="flex justify-between items-center border-b pb-2">
+        <h3 class="font-bold text-base text-slate-800">ℹ️ 旅程與住宿總覽</h3>
+        <button onclick="toggleModal('infoModal')" class="text-slate-400 hover:text-slate-700 text-lg">&times;</button>
+      </div>
+      <div class="text-xs text-slate-600 space-y-2">
+        <p><strong>10/8 – 10/10 (2晚)</strong>：Hotel Caza (漁人碼頭)</p>
+        <p><strong>10/10 – 10/12 (2晚)</strong>：Hotel Riu Plaza (隔壁過街)</p>
+        <p><strong>10/12 – 10/13 (1晚)</strong>：Maple Tree Inn (Sunnyvale)</p>
+        <p><strong>10/14 凌晨 01:05</strong>：華航 CI3 返台</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 提示 Toast -->
+  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-slate-900/90 text-white text-xs px-4 py-2 rounded-full shadow-lg opacity-0 transition-opacity duration-200 pointer-events-none">
+    已複製到剪貼簿！
+  </div>
+
+  <script>
+    // Tab 切換邏輯
+    function switchTab(dayKey) {
+      document.querySelectorAll('.day-content').forEach(el => el.classList.add('hidden'));
+      const activeContent = document.getElementById('content-' + dayKey);
+      if (activeContent) activeContent.classList.remove('hidden');
+
+      document.querySelectorAll('.day-tab').forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+      });
+
+      const activeTab = document.getElementById('tab-' + dayKey);
+      if (activeTab) {
+        activeTab.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+        activeTab.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+        activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Modal 開關
+    function toggleModal(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.toggle('hidden');
+      }
+    }
+
+    // 複製字串與提示
+    function copyText(text, label) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(`已複製 ${label}: ${text}`);
+      }).catch(() => {
+        showToast(`複製失敗，請手動複製: ${text}`);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.remove('opacity-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0');
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
